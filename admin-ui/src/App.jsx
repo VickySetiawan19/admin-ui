@@ -24,6 +24,17 @@ function App() {
 
   return (
     <>
+      <h1 className="text-3xl font-bold bg-primary">Ini font default</h1>
+      <h1 className="text-3xl font-bold font-poppins text-primary">Ini font poppins</h1>
+      <h1 className="text-3xl">Ini font default</h1>
+      <p className="m-4 border border-primary">
+        Ini font default juga. Lorem ipsum dolor sit, amet consectetur
+        adipisicing elit. Illum perferendis dolores provident debitis,
+        necessitatibus ullam, quibusdam dolore cumque velit, molestias
+        recusandae exercitationem pariatur. Quas ullam aliquid ea. Repellat,
+        exercitationem similique!
+      </p>
+
       <div className="p-6 grid grid-cols-1 gap-6 md:grid-cols-3">
         {courses.map((course, index) => (
           <div key={index} className="shadow rounded-lg overflow-hidden flex flex-col
