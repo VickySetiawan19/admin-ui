@@ -5,12 +5,21 @@ import CheckBox from '../Elements/CheckBox'
 import { Link } from "react-router-dom";
 
 
-function FormSignIn() {
+function FormSignUp() {
   return (
     <>
     {/* form start */}
             <div className="mt-16">
             <form action="">
+                <div className="mb-6">
+                <LabeledInput
+                    label="Name"
+                    id="name"
+                    type="text"
+                    placeholder="Tanzir Rahman"
+                    name="name"
+                />
+                </div>
                 <div className="mb-6">
                 <LabeledInput
                     label="Email Address"
@@ -36,7 +45,7 @@ function FormSignIn() {
                     name="status"
                 />
                 </div>
-                <Button>Login</Button>
+                <Button>Sign Up</Button>
             </form>
             </div>
             {/* form end */}
@@ -81,9 +90,10 @@ function FormSignIn() {
             
             {/* sign in with google end */}
             {/* link start */}
-            <div className="flex justify-center">
-                <Link to="/register" className="text-primary text-sm font-bold">
-                    Create an account
+            <div className="flex justify-center text-sm text-gray-01">
+                Already have an account?&nbsp;
+                <Link to="/login" className="text-primary font-bold">
+                    Sign In Here
                 </Link>
             </div>
         {/* link end */}
@@ -91,4 +101,4 @@ function FormSignIn() {
   )
 }
 
-export default FormSignIn
+export default FormSignUp
