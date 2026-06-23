@@ -3,14 +3,22 @@ import LabeledInput from '../Elements/LabeledInput'
 import Button from '../Elements/Button'
 import CheckBox from '../Elements/CheckBox'
 import { Link } from "react-router-dom";
+import { useState } from 'react';
 
+function FormSignIn({ onSubmit }) {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-function FormSignIn() {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onSubmit(email, password);
+    };
+
   return (
     <>
     {/* form start */}
             <div className="mt-16">
-            <form action="">
+            <form onSubmit={handleSubmit}>
                 <div className="mb-6">
                 <LabeledInput
                     label="Email Address"
@@ -18,6 +26,8 @@ function FormSignIn() {
                     type="email"
                     placeholder="hello@example.com"
                     name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
                 </div>
                 <div className="mb-6">
@@ -26,7 +36,10 @@ function FormSignIn() {
                     id="password"
                     type="password"
                     placeholder="••••••••"
-                    name="password"/>
+                    name="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
                 </div>
                 <div className="mb-3">
                 <CheckBox
@@ -81,12 +94,12 @@ function FormSignIn() {
             
             {/* sign in with google end */}
             {/* link start */}
-            <div className="flex justify-center">
-                <Link to="/register" className="text-primary text-sm font-bold">
+            <div className='flex justify-center'>
+                <Link to="/register" className='text-primary text-sm font-bold'>
                     Create an account
                 </Link>
             </div>
-        {/* link end */}
+            {/* link end */}
     </>
   )
 }
