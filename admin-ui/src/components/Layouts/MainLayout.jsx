@@ -87,7 +87,7 @@ function MainLayout(props) {
                     </div>
                 </div>
                 <div>
-                    <div onClick={handleLogout} classname="cursor-pointer">
+                    <div onClick={handleLogout} className="cursor-pointer">
                         <div className="flex bg-special-bg3 text-white px-4 py-3 rounded-md">
                             <div className="mx-auto sm:mx-0 text-primary">
                                 <Icon.Logout/>

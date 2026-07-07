@@ -33,7 +33,7 @@ export default function BarsDataset(props) {
   const { theme } = React.useContext(ThemeContext);
 
   const expensesSeries = dataset.series.map((item) =>
-    item.datakey === "amountLastWeek" ? {...item, color: theme.color} : item
+    item.dataKey === "amountLastWeek" ? {...item, color: theme.color} : item
 );
 
   return (
