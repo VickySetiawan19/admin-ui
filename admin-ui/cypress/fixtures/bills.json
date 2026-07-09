@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Figma - Yearly Plan",
+      "logo": "Figma.svg",
+      "amount": 150,
+      "date": "15",
+      "month": "May",
+      "lastCharge": "2022-05-14"
+    },
+    {
+      "id": 2,
+      "name": "Adobe Inc - Yearly Plan",
+      "logo": "Adobe.svg",
+      "amount": 559,
+      "date": "16",
+      "month": "June",
+      "lastCharge": "2022-06-17"
+    }
+  ]
+}

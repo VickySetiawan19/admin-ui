@@ -1,0 +1,11 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "target_amount": 20000,
+      "present_amount": 12500,
+      "month": 5,
+      "year": 2023
+    }
+  ]
+}
