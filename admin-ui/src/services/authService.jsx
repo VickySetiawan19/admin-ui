@@ -34,3 +34,15 @@ export const logoutService = async () => {
     };
   }
 };
+
+export const registerService = async (name, email, password) => {
+  try {
+    const response = await axios.post(
+      `${API_URL}/register`,
+      { name, email, password },
+    );
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || { msg: "Registrasi gagal" };
+  }
+};

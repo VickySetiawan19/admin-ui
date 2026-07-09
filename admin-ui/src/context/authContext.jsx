@@ -20,6 +20,8 @@ export const AuthContextProvider = ({ children }) => {
     return null;
   });
 
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
   const login = (token) => {
     try {
       const decoded = jwtDecode(token);
@@ -30,14 +32,19 @@ export const AuthContextProvider = ({ children }) => {
       console.error("Invalid token");
     }
   };
-  
+
   const logout = () => {
-    setUser(null);
-    localStorage.removeItem("token");
+    setIsLoggingOut(true); 
+
+    setTimeout(() => {
+      setUser(null);
+      localStorage.removeItem("token");
+      setIsLoggingOut(false);
+    }, 1200);
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, isLoggingOut }}>
       {children}
     </AuthContext.Provider>
   );

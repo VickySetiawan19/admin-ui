@@ -1,16 +1,18 @@
+import React, { useState } from "react";
 import "./App.css";
-import react from "react";
-import SignInPage from "./pages/SignIn";
-import SignUpPage from "./pages/SignUp";
+import SignInPage from "./pages/signIn";
+import SignUpPage from "./pages/signUp";
 import ErrorPage from "./pages/error";
 import DashboardPage from "./pages/dashboard";
 import BalancePage from "./pages/balance";
-import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import ExpensePage from "./pages/expense";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import { AuthContext } from "./context/authContext";
 
 function App() {
-  const { user  } = react.useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const RequireAuth = ({ children }) => {
     return user ? children : <Navigate to="/login" />;
@@ -18,7 +20,7 @@ function App() {
 
   const NotRequireAuth = ({ children }) => {
     return user ? <Navigate to="/" /> : children;
-  }
+  };
 
   const myRouter = createBrowserRouter([
     {
@@ -54,13 +56,17 @@ function App() {
         </RequireAuth>
       ),
     },
+    {
+      path: "/expense",
+      element: (
+        <RequireAuth>
+          <ExpensePage />
+        </RequireAuth>
+      ),
+    },
   ]);
 
-  return (
-    <>
-      <RouterProvider router={myRouter} />
-    </>
-  );
+  return <RouterProvider router={myRouter} />;
 }
 
 export default App;
